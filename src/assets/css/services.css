@@ -1,0 +1,133 @@
+/* ==== GIAO DIỆN DỊCH VỤ - PHÒNG KHÁM ĐA KHOA ==== */
+body {
+  background-color: #eaf6fd;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======= TIÊU ĐỀ TRANG ======= */
+.site-header {
+  text-align: center;
+  font-size: 52px;
+  color: #1b72b7;
+  font-weight: 800;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ======= PHẦN GIỚI THIỆU DỊCH VỤ ======= */
+.services-section {
+  padding: 20px;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.services-left {
+  flex: 1 1 58%;
+  min-width: 300px;
+}
+
+.services-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1b2e59;
+  margin-bottom: 12px;
+}
+
+.services-subtitle {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 36px;
+}
+
+/* ======= LƯỚI DỊCH VỤ ======= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.service-item {
+  background-color: #ffffff;
+  padding: 20px 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-item .icon {
+  font-size: 24px;
+  color: #1b72b7;
+  margin-bottom: 12px;
+}
+
+.service-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b2e59;
+  margin-bottom: 8px;
+}
+
+.service-item p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ======= PHẦN HÌNH ẢNH PHẢI ======= */
+.services-right {
+  flex: 1 1 38%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.services-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.services-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    font-size: 36px;
+  }
+
+  .services-right {
+    margin-top: 30px;
+  }
+}

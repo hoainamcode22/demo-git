@@ -1,0 +1,171 @@
+body.home-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #eaf6fd;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1b72b7;
+}
+
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.contact-button {
+    background-color: #1b72b7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 80px;
+    background-color: #eaf6fd;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.sub-title {
+    color: #1b72b7;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+.hero-text .highlight {
+    color: #1b72b7;
+}
+
+.description {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-book {
+    padding: 12px 24px;
+    background-color: #1b72b7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-book:hover {
+    background-color: #155a91;
+}
+
+.hero-images {
+    display: flex;
+    flex-direction: column; /* Để ảnh xếp dọc */
+    align-items: flex-end;   /* Đẩy sát về phía bên phải */
+    gap: 20px;               /* Khoảng cách giữa hai ảnh */
+    margin-left: 40px;
+}
+
+.hero-images img {
+    width: 360px;
+    height: auto; /* cho ảnh tự điều chỉnh chiều cao */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* chuyển từ cover -> contain */
+}
+.services-section {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.services-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #222;
+  text-align: center;
+}
+
+.services-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.services-column {
+  flex: 1;
+  max-width: 300px;
+  min-width: 250px;
+}
+
+.service-item {
+  margin-bottom: 40px;
+}
+
+.service-item h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a2a2a;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.service-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.services-image {
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
