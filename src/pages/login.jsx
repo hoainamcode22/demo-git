@@ -1,20 +1,44 @@
 import { useState } from "react";
 import "../assets/css/login.css";
 import doctorImg from "../assets/images/doctor.jpg";
-import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
+
+import { useAuth } from "../context/AuthContext";
+
+import axios from "axios";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = (e) => {
-    e.preventDefault(); // ngăn reload trang
-    // mock login, sẽ gắn API Dev1 sau
-    login("demo-token", { username, roles: ["GUEST"] });
-    navigate("/");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8080/api/auth/login", {
+        email: username,
+        password: password,
+      });
+
+      const { token, role } = res.data;
+
+      // Lưu token và role vào localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
+
+      // Điều hướng đến dashboard tương ứng
+      if (role === "ADMIN") {
+        navigate("/pending-clinics");
+      } else if (role === "CLINIC_OWNER") {
+        navigate("/create-clinic");
+      } else {
+        alert("Vai trò chưa được hỗ trợ ở bước này.");
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Lỗi đăng nhập:", error);
+      alert("Đăng nhập thất bại. Kiểm tra email hoặc mật khẩu.");
+    }
   };
 
   return (
@@ -30,7 +54,6 @@ export default function LoginPage() {
           <form onSubmit={onSubmit}>
             <input
               type="text"
-              name="username"
               placeholder="Tài khoản"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -38,7 +61,6 @@ export default function LoginPage() {
             />
             <input
               type="password"
-              name="password"
               placeholder="Mật khẩu"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

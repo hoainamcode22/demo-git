@@ -9,11 +9,37 @@ export function AuthProvider({ children }) {
     return raw ? JSON.parse(raw) : null;
   });
 
-  const login = (jwt, userInfo) => {
-    setToken(jwt);
-    setUser(userInfo || null);
-    localStorage.setItem("token", jwt);
-    if (userInfo) localStorage.setItem("user", JSON.stringify(userInfo));
+  // ✅ Đăng nhập bằng API thật
+  const login = async (email, password) => {
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (!response.ok) {
+        throw new Error("Đăng nhập thất bại");
+      }
+
+      const data = await response.json();
+
+      // Lưu token + user info
+      setToken(data.token);
+      const userInfo = {
+        name: data.name,
+        role: data.role,
+        email: email
+      };
+      setUser(userInfo);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(userInfo));
+    } catch (error) {
+      console.error("Lỗi đăng nhập:", error);
+      throw error; // để component gọi login xử lý tiếp
+    }
   };
 
   const logout = () => {
